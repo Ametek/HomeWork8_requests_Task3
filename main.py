@@ -3,7 +3,6 @@ import time
 
 
 class Stackoverflow:
-
     def get_recent_questions(self):
         url = 'https://api.stackexchange.com/2.3/questions/'
         days_to_sec = 2 * 86400
@@ -25,8 +24,6 @@ class Stackoverflow:
         print('Вывод успешно завершён.')
 
 
-
-loader = Stackoverflow()
-loader.get_recent_questions()
-
-
+if __name__ == '__main__':
+    loader = Stackoverflow()
+    loader.get_recent_questions()
