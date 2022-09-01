@@ -17,7 +17,13 @@ class Stackoverflow:
                   'pagesize': 100,
                   'page': 1}
         response = requests.get(url, params=params).json()
-        print(response)
+        while response['has_more']:
+            response = requests.get(url, params=params).json()
+            for quest in response['items']:
+                print(quest['link'])
+            params['page'] += 1
+        print('Вывод успешно завершён.')
+
 
 
 loader = Stackoverflow()
